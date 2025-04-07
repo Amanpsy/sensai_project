@@ -37,7 +37,7 @@ return () => window.removeEventListener('scroll', handleScroll)
     <div className='space-y-6 text-center'>
     <div className='space-y-8 mx-auto'>
     <h1 className='text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title'>
-    Your AI Career Coach for
+    I am Your AI Career Coach for
     <br/>
     Professional Suceess
     </h1>
@@ -61,7 +61,7 @@ return () => window.removeEventListener('scroll', handleScroll)
 
 <div className='hero-image-wrapper mt-5 md:mt-0'>
 <div ref={imageRef} className='hero-image'>
-<Image src={"/banner.jpeg"} width={1280} height={720} alt='banner preview'  className='rounded-lg shadow-2xl border mx-auto'  />
+<Image src={"/banner.png"} width={1280} height={720} alt='banner preview'  className='rounded-lg shadow-2xl border mx-auto'  />
 </div>
 
 </div>

@@ -32,9 +32,7 @@ export default function Home() {
       <p>{feature.description}</p>
       </div>
     </CardContent>
-    <CardFooter>
-      <p className="text-muted-foreground">Card Footer</p>
-    </CardFooter>
+
   </Card>
   })
 }
