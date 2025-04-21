@@ -9,7 +9,6 @@ async function IndustyInsightsPage() {
   const insights = await getIndustryInsight()
 
   const {isOnboarded}  = await getUserOnboardingStatus()
-  console.log(isOnboarded)
   
   if (!isOnboarded) {
       redirect('/onboarding')

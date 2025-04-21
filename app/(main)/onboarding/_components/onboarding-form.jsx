@@ -49,15 +49,13 @@ function OnBoardingForm({ industries }) {
   
   const watchIndustry = watch("industry");
   useEffect(() => {
-    console.log(industries);
-    console.log(selectedIndustry);
+    
   }, [selectedIndustry, setValue]);
 
   const onSubmit = async (values) => {
 
     try {
         const formatIndustry = `${values.industry} -${values.subIndustry.toLowerCase().replace(/ /g, "_" )}`
-console.log(updateUserfn, "updateUserfn")
         await updateUserfn({
             ...values, industry : formatIndustry
         })
@@ -71,8 +69,7 @@ console.log(updateUserfn, "updateUserfn")
      useEffect(() => {
     
   if(updateResult?.sucess && !updateLoading) {
-console.log(updateResult, "updateResult")
-console.log(updateLoading, "updateResult2")
+
 toast.success('Profile Updated Sucessfully')
 router.push("/dashboard")
   }
