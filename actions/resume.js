@@ -7,11 +7,12 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export async function saveResume(content) {
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-    const model = genAI.getGenerativeModel({
-        model: "gemini-1.5-flash",
-      });
+
+  const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+  });
 
 const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
@@ -72,7 +73,14 @@ export async function getResume() {
     
 }
 
-export async function improveWithAI ({current, type}) {
+export async function improveWithAI ({current, type, organization}) {
+
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+  
+  const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+  });
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
   
@@ -84,10 +92,10 @@ export async function improveWithAI ({current, type}) {
 
 
     const prompt = `
-    As an expert resume writer, improve the following ${type} description for a ${user.industry} professional.
+    As an expert resume writer, improve the following ${type} description for a ${user.industry} professional${organization ? ` at ${organization}` : ""}.
     Make it more impactful, quantifiable, and aligned with industry standards.
     Current content: "${current}"
-
+    
     Requirements:
     1. Use action verbs
     2. Include metrics and results where possible
@@ -97,7 +105,8 @@ export async function improveWithAI ({current, type}) {
     6. Use industry-specific keywords
     
     Format the response as a single paragraph without any additional text or explanations.
-  `;
+    `;
+    
 
   const result = await model.generateContent(prompt);
     const response = result.response;

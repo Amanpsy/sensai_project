@@ -11,7 +11,7 @@ import useFetch from '@/hooks/useFetch'
 import { saveResume } from '@/actions/resume'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import EntryForm from './entry-form'
+import { EntryForm } from './entry-form'
 
 
 
