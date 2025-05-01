@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import {PacmanLoader} from 'react-spinners';
+import {BarLoader } from 'react-spinners';
 
 function Layout({children}) {
   return (
@@ -8,7 +8,7 @@ function Layout({children}) {
     <h1 className='text-6xl font-bold gradient-title'>Industry Insights</h1>
 
     </div>
-   <Suspense fallback={<PacmanLoader  className='mt-4' width={"100%"} color='gray'
+   <Suspense fallback={<BarLoader   className='mt-4' width={"100%"} color='gray'
     /> }>  {children} </Suspense>
     
     </div>

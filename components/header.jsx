@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "./ui/button";
 import {
   PenBox,
@@ -7,6 +6,7 @@ import {
   GraduationCap,
   ChevronDown,
   StarsIcon,
+  Pizza,
 } from "lucide-react";
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
@@ -18,10 +18,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import { checkUser } from "@/lib/checkUser";
+import { useTheme } from "next-themes";
+import ThemeToggleButton from './themetoggleButton';
 
 export default async function Header() {
   await checkUser();
 
+ 
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -104,6 +107,10 @@ export default async function Header() {
               afterSignOutUrl="/"
             />
           </SignedIn>
+          <div>
+              <ThemeToggleButton />
+          
+          </div>
         </div>
       </nav>
     </header>

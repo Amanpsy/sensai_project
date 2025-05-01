@@ -5,24 +5,17 @@ import { getUserOnboardingStatus } from '@/actions/user';
 import { async } from './../../../actions/user';
 import { redirect } from 'next/navigation';
 
-const OnBoarding = async () =>  {  
+export default async function OnBoarding ()   {  
+  const { isOnboarded } = await getUserOnboardingStatus();
 
-const {isOnboarded}  = getUserOnboardingStatus()
-console.log(isOnboarded, "isOnboarded")
-if (isOnboarded) {
-  console.log(isOnboarded, "isOnboarded2")
-
-    redirect('/dashboard')
-}
-
-
+  if (isOnboarded) {
+    redirect("/dashboard");
+  }
 
   return (
     <main>
-    <OnBoardingForm industries={industries} />
-    
+      <OnBoardingForm industries={industries} />
     </main>
-  )
+  );
 }
 
-export default OnBoarding

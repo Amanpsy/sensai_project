@@ -1,8 +1,9 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
-import {
+import {  
   ClerkProvider,
   SignInButton,
   SignUpButton,
@@ -22,7 +23,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider appearance={{
+    <ClerkProvider   fallbackRedirectUrl="/dashboard"
+    appearance={{
       baseTheme : dark
     }}>
     <html lang="en" suppressHydrationWarning>
@@ -31,11 +33,10 @@ export default function RootLayout({ children }) {
       >
       <ThemeProvider
       attribute="class"
-      defaultTheme="light"
+      defaultTheme="dark"
       enableSystem
-      disableTransitionOnChange
     >
-    <Header/>
+    <Header />
 <main className="min-h-screen">
 {children}
 </main>  

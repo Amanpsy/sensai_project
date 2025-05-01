@@ -23,32 +23,26 @@ const { userId } = await auth();
 
   if (!user) throw new Error("User not found");
 
-try {
-
+  try {
     const resume = await db.resume.upsert({
+      where: {
+        userId: user.id,
+      },
+      update: {
+        content,
+      },
+      create: {
+        userId: user.id,
+        content,
+      },
+    });
 
-where : {
-    update : {
-        content
-    }, 
-    create : {
-
-        userId :user.id,
-        content
-    }
-
-}
-
-    })
-
-    revalidatePath("resume")
-    return resume
-
-    
-} catch (error) {
-    console.log(error)
-}
-
+    revalidatePath("/resume");
+    return resume;
+  } catch (error) {
+    console.error("Error saving resume:", error);
+    throw new Error("Failed to save resume");
+  }
 }
 
 
