@@ -11,7 +11,7 @@ export async function saveResume(content) {
 
 
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+    model: "gemini-2.5-flash",
   });
 
 const { userId } = await auth();
@@ -73,7 +73,7 @@ export async function improveWithAI ({current, type, organization}) {
 
   
   const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
+    model: "gemini-2.5-flash",
   });
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
